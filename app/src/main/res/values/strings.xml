@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Danko</string>
+    <string name="user_cap">Usuario</string>
+    <string name="pass_cap">Contraseña</string>
+    <string name="user_enter">Entrar</string>
+    <string name="guest_enter">Invitado</string>
+
+    <string name="user_develop">World Pos Solutions</string>
+</resources>
