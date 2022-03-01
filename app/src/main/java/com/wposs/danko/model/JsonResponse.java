@@ -1,9 +1,7 @@
-package com.wposs.alfa_rrhh.model;
+package com.wposs.danko.model;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-
-import org.json.JSONObject;
 
 public class JsonResponse {
     private JsonObject jsonObjetResponse;

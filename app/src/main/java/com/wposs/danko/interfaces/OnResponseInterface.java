@@ -1,6 +1,7 @@
-package com.wposs.alfa_rrhh.services;
+package com.wposs.danko.interfaces;
 
-import com.wposs.alfa_rrhh.model.JsonResponse;
+
+import com.wposs.danko.model.JsonResponse;
 
 public interface OnResponseInterface {
 

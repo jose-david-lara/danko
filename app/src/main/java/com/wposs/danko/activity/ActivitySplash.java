@@ -1,9 +1,12 @@
 package com.wposs.danko.activity;
 
 import android.content.Intent;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
+import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,36 +14,43 @@ import com.wposs.danko.R;
 
 public class ActivitySplash  extends AppCompatActivity {
 
-    private Animation animation;
+    private AnimationDrawable animation;
+    private Animation transition;
+    private ImageView loading;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        animation = AnimationUtils.loadAnimation(this, R.anim.transicion);
+        View decorView = getWindow().getDecorView();
+        int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_FULLSCREEN;
+        decorView.setSystemUiVisibility(uiOptions);
+        loading = findViewById(R.id.loading);
+        loading.setBackgroundResource(R.drawable.loading);
+        loading.setVisibility(View.INVISIBLE);
+        animation = (AnimationDrawable) loading.getBackground();
+        animation.start();
 
-        animation.setAnimationListener(new Animation.AnimationListener() {
+        transition = AnimationUtils.loadAnimation(this,R.anim.transicion);
+        loading.startAnimation(transition);
+        transition.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {
-
             }
-
             @Override
             public void onAnimationEnd(Animation animation) {
                 nextActivity();
             }
-
             @Override
             public void onAnimationRepeat(Animation animation) {
-
             }
         });
-        nextActivity();
 
     }
 
     private void nextActivity ( ){
+        animation.stop(); //Paramos el AnimationDrawable
         Intent intent = new Intent(this, ActivityLogin.class);
         startActivity(intent);
         this.finish();

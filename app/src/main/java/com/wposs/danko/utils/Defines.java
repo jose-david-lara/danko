@@ -1,10 +1,10 @@
-package com.wposs.alfa_rrhh.Utilities;
+package com.wposs.danko.utils;
 
 public final class Defines {
 
     public static final String MODEL_DEVICE = "NEW9220";
     public static String API_URL = "http://190.25.173.72:8084/";
-    public static final String ECHO_TEST = "api/test";
+    public static final String ECHO_TEST = "test";
     public static final String PARAMS_URL = "params/getParamsInit";
 
 

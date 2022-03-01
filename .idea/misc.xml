@@ -3,10 +3,21 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Proyectos/Android/danko/app/src/main/res/drawable-v24/back_corner.xml" value="0.1065" />
+        <entry key="..\:/Proyectos/Android/danko/app/src/main/res/drawable-v24/buttonError.xml" value="0.1065" />
+        <entry key="..\:/Proyectos/Android/danko/app/src/main/res/drawable-v24/cargando.xml" value="0.1765" />
+        <entry key="..\:/Proyectos/Android/danko/app/src/main/res/drawable-v24/pushButton.xml" value="0.1735" />
+        <entry key="..\:/Proyectos/Android/danko/app/src/main/res/drawable-v24/pushbutton.xml" value="0.1" />
+        <entry key="..\:/Proyectos/Android/danko/app/src/main/res/drawable/buttonError.xml" value="0.1065" />
+        <entry key="..\:/Proyectos/Android/danko/app/src/main/res/drawable/buttongraypush.xml" value="0.1" />
         <entry key="..\:/Proyectos/Android/danko/app/src/main/res/drawable/edittext_rounded.xml" value="0.2475" />
-        <entry key="..\:/Proyectos/Android/danko/app/src/main/res/layout/activity_login.xml" value="0.33" />
+        <entry key="..\:/Proyectos/Android/danko/app/src/main/res/drawable/error.xml" value="0.1065" />
+        <entry key="..\:/Proyectos/Android/danko/app/src/main/res/drawable/loading.xml" value="0.1" />
+        <entry key="..\:/Proyectos/Android/danko/app/src/main/res/drawable/test.xml" value="0.1" />
+        <entry key="..\:/Proyectos/Android/danko/app/src/main/res/layout/activity_login.xml" value="0.2583518930957684" />
         <entry key="..\:/Proyectos/Android/danko/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/Proyectos/Android/danko/app/src/main/res/layout/activity_splash.xml" value="0.1762917933130699" />
+        <entry key="..\:/Proyectos/Android/danko/app/src/main/res/layout/dialog_error.xml" value="0.23641304347826086" />
       </map>
     </option>
   </component>

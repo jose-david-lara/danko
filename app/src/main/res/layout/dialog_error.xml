@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:background="@color/transparent"
     android:orientation="vertical"
-    tools:context=".view.Splash">
+    tools:context=".activity.ActivityLogin">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -25,7 +25,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginVertical="13dp"
-            android:text="@string/Error_Device"
             android:textColor="@color/greenCorrect"
             android:textStyle="bold" />
 
@@ -33,8 +32,8 @@
             android:id="@+id/buttonAcceptDialog"
             android:layout_width="140dp"
             android:layout_height="40dp"
-            android:background="@drawable/btn_error"
-            android:text="@string/Acpetar"
+            android:background="@drawable/buttonerror"
+            android:text="@string/user_accept"
             android:textColor="@color/white"
             android:textSize="15.4sp"
             android:textStyle="bold" />
