@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.wposs.danko.R;
+import com.wposs.danko.login.view.ActivityLogin;
 
 public class ActivitySplash  extends AppCompatActivity {
 

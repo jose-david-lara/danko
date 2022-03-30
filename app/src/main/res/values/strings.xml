@@ -4,6 +4,9 @@
     <string name="pass_cap">Contraseña</string>
     <string name="user_enter">Entrar</string>
     <string name="guest_enter">Invitado</string>
+    <string name="filter_country">Pais</string>
+    <string name="filter_department">Estado / Departamento</string>
+    <string name="filter_city">Ciudad</string>
 
     <string name="user_develop">World Pos Solutions</string>
     <string name="user_accept">Aceptar</string>
