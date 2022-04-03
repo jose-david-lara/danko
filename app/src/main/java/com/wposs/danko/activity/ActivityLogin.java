@@ -18,8 +18,12 @@ import com.wposs.danko.R;
 import com.wposs.danko.interfaces.DialogoInterface;
 import com.wposs.danko.interfaces.OnResponseInterface;
 import com.wposs.danko.io.ConsumeServicesExpress;
+import com.wposs.danko.model.JsonResponse;
 import com.wposs.danko.utils.Defines;
 import com.wposs.danko.utils.UtilsClass;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class ActivityLogin extends AppCompatActivity implements View.OnClickListener {
 
@@ -78,7 +82,7 @@ public class ActivityLogin extends AppCompatActivity implements View.OnClickList
                 public void denied() {
 
                 }
-            }, "");
+            }, "", R.drawable.error);
         }
 
 
@@ -89,14 +93,14 @@ public class ActivityLogin extends AppCompatActivity implements View.OnClickList
 
 
     public void echoTest() {
-
-        new ConsumeServicesExpress().consume_api(Defines.ECHOTEST, new OnResponseInterface() {
+        new ConsumeServicesExpress().consume_api(Defines.USER_URL, new OnResponseInterface() {
             @Override
-            public void finish_consumer_services() {
+            public void finish_consumer_services(JsonResponse jsonResponse) {
                 Toast.makeText(ActivityLogin.this, "Servidor En Linea", Toast.LENGTH_SHORT).show();
 
 
             }
+
 
             @Override
             public void finish_fail_consumer_services() {

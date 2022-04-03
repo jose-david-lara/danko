@@ -4,11 +4,14 @@ package com.wposs.danko.io;
 import android.content.Context;
 
 import com.google.gson.JsonObject;
+import com.wposs.danko.interfaces.ModelInterface;
 import com.wposs.danko.interfaces.OnResponseInterface;
 import com.wposs.danko.model.JsonResponse;
 import com.wposs.danko.utils.Defines;
 
 import org.json.JSONObject;
+
+import java.util.Map;
 
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
@@ -22,33 +25,17 @@ public class ConsumeServicesExpress implements OnResponseInterface {
 
     JSONObject jsonObject;
 
-    public ConsumeServicesExpress() {
-    }
 
-    public ConsumeServicesExpress(JSONObject jsonObject) {
-        this.jsonObject = jsonObject;
-    }
-
-    public void consume_api(int typeServices, OnResponseInterface interfaceOnresponse){
+    public void consume_api(String typeServices, OnResponseInterface interfaceOnresponse){
         Call<JsonObject> call = null;
         switch (typeServices){
 
-            case Defines.ECHOTEST:
+            case Defines.ECHO_TEST:
                 call = ApiAdapter.getApiService().getECHOTEST("ECHOTEST");
                 break;
 
-            case Defines.PARAMETERS:
-                call = ApiAdapter.getApiService().getDataParans(null);
-                break;
-
-            case Defines.LOGIN:
-                Retrofit retrofit = new Retrofit.Builder()
-                        .baseUrl(Defines.LOGIN_URL)
-                        .addConverterFactory(GsonConverterFactory.create())
-                        .build();
-                RequestBody body = RequestBody.create(MediaType.parse("application/json"), jsonObject.toString());
-                ApiService apiAdapter = retrofit.create(ApiService.class);
-                call = apiAdapter.login(body);
+            case Defines.USER_URL:
+                call = ApiAdapter.getApiService().getUser(ModelInterface.user);
                 break;
 
         }
@@ -57,10 +44,11 @@ public class ConsumeServicesExpress implements OnResponseInterface {
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
                 if (response.isSuccessful()){
                     jsonResponse.setJsonObjetResponse(response.body());
-                    if(typeServices != Defines.ECHOTEST) {
-                        if (!jsonResponse.getJsonObjetResponse().get("error").getAsBoolean()) {
-                            jsonResponse.setJsonResponseData(jsonResponse.getJsonObjetResponse().get("data").getAsJsonArray());
-                        }
+                    if(jsonResponse.getJsonObjetResponse().get("model") != null) {
+                        jsonResponse.setJsonObjetResponse(jsonResponse.getJsonObjetResponse().get("model").getAsJsonObject());
+                    }else{
+                        if(jsonResponse.getJsonObjetResponse().get("msgError") == null)
+                            jsonResponse.setJsonObjetResponse(null);
                     }
                     call.cancel();
                     interfaceOnresponse.finish_consumer_services(jsonResponse);

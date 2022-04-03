@@ -1,5 +1,7 @@
 package com.wposs.danko.io;
 
+import com.wposs.danko.utils.Defines;
+
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
@@ -30,7 +32,7 @@ public class ApiAdapter {
             baseUrl = "https://tu-red.com/api/";//
         else*/
         //Produccion
-        baseUrl = "https://tu-red.com/api/";//baseUrl = "https://cobrorevertido.recargamos.co:36002/api/";
+       // baseUrl = "https://tu-red.com/api/";//baseUrl = "https://cobrorevertido.recargamos.co:36002/api/";
 
 
         //Produccion
@@ -38,7 +40,7 @@ public class ApiAdapter {
 
         if (API_SERVICE == null) {
             Retrofit retrofit = new Retrofit.Builder()
-                    .baseUrl(baseUrl)
+                    .baseUrl(Defines.API_URL)
                     .addConverterFactory(GsonConverterFactory.create())
                     .client(httpClient.build()) // <-- usamos el log level
                     .build();

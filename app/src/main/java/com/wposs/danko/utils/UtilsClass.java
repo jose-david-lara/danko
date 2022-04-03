@@ -1,5 +1,6 @@
 package com.wposs.danko.utils;
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Build;
@@ -18,12 +19,11 @@ import com.wposs.danko.interfaces.DialogoInterface;
 
 public class UtilsClass extends AppCompatActivity {
 
-    private TextView textDialogBody;
 
+    @SuppressLint("UseCompatLoadingForDrawables")
+    public void dialogMessage (Context context, DialogoInterface interfaceDialog, String dialogBody, int idDrawable){
 
-    public void dialogMessage (Context context, DialogoInterface interfaceDialog, String dialogBody){
-
-        textDialogBody = (TextView) findViewById(R.id.textDialogError);
+        //
 
         Dialog dialogo = new Dialog(context);
         dialogo.setContentView(R.layout.dialog_error);
@@ -35,13 +35,11 @@ public class UtilsClass extends AppCompatActivity {
         lp.width = WindowManager.LayoutParams.WRAP_CONTENT;
         lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
 
-
+        TextView textDialogBody =dialogo.findViewById(R.id.textDialogError);
         textDialogBody.setText(dialogBody);
         ImageView imageView = dialogo.findViewById(R.id.vectorImage);
-       /* if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            textDialogBody.setTextColor(context.getColor(R.color.redError));
-        }*/
-        imageView.setImageDrawable(context.getDrawable(R.drawable.error));
+
+        imageView.setImageDrawable(context.getDrawable(idDrawable));
 
 
         dialogo.show();
@@ -51,7 +49,41 @@ public class UtilsClass extends AppCompatActivity {
             interfaceDialog.accepted();
         });
 
-        Toast.makeText(context, dialogBody, Toast.LENGTH_SHORT).show();
+    }
+
+    @SuppressLint("UseCompatLoadingForDrawables")
+    public void dialogMessageOptions (Context context, DialogoInterface interfaceDialog, String dialogBody, int idDrawable){
+
+        Dialog dialogo = new Dialog(context);
+        dialogo.setContentView(R.layout.dialog_msj_accept_cancl);
+
+        dialogo.setCancelable(false);
+
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom(dialogo.getWindow().getAttributes());
+        lp.width = WindowManager.LayoutParams.WRAP_CONTENT;
+        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+
+        TextView textDialogBody =dialogo.findViewById(R.id.textDialogAccpCancl);
+        textDialogBody.setText(dialogBody);
+        ImageView imageView = dialogo.findViewById(R.id.vectorImageAccpCancl);
+
+        imageView.setImageDrawable(context.getDrawable(idDrawable));
+
+
+        dialogo.show();
+        dialogo.getWindow().setAttributes(lp);
+        dialogo.getWindow().setBackgroundDrawableResource(R.color.transparent);
+        dialogo.findViewById(R.id.buttonCancelDialogAccpCancl).setOnClickListener(v -> {
+            dialogo.cancel();
+            interfaceDialog.denied();
+        });
+        dialogo.findViewById(R.id.buttonAcceptDialogAccpCancl).setOnClickListener(v -> {
+            interfaceDialog.accepted();
+        });
+
+
+
 
     }
 }

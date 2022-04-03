@@ -5,7 +5,7 @@ import com.google.gson.JsonObject;
 
 public class JsonResponse {
     private JsonObject jsonObjetResponse;
-    private JsonArray jsonResponseData;
+    private JsonArray jsonResponseModel;
 
     public JsonObject getJsonObjetResponse() {
         return jsonObjetResponse;
@@ -16,18 +16,18 @@ public class JsonResponse {
     }
 
     public JsonArray getJsonResponseData() {
-        return jsonResponseData;
+        return jsonResponseModel;
     }
 
-    public void setJsonResponseData(JsonArray jsonResponseData) {
-        this.jsonResponseData = jsonResponseData;
+    public void setJsonResponseModel(JsonArray jsonResponseModel) {
+        this.jsonResponseModel = jsonResponseModel;
     }
 
     @Override
     public String toString() {
         return "JsonResponse{" +
                 "jsonObjetResponse=" + jsonObjetResponse +
-                ", jsonResponseData=" + jsonResponseData +
+                ", jsonResponseModel=" + jsonResponseModel +
                 '}';
     }
 }

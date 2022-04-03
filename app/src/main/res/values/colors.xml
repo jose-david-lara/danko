@@ -35,4 +35,7 @@
 
     //Colores Menu Productos
     <color name="colorBackMenuProductos">#002283</color>
+
+    //Colores Boton decisiones
+    <color name="color_red">#D82741</color>
 </resources>

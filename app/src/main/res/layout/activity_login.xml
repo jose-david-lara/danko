@@ -82,7 +82,9 @@
                     android:topRightRadius="7dp"
                     android:textAllCaps="false"
                     android:textColor="@color/white"
-                    android:textSize="15sp" />
+                    android:textSize="15sp"
+                    tools:ignore="UsingOnClickInXml"
+                    android:focusable="true" />
 
                 <Button
                     android:id="@+id/buttonInvitado"
@@ -95,11 +97,15 @@
                     android:bottomLeftRadius="7dp"
                     android:bottomRightRadius="7dp"
                     android:radius="0.1dp"
+                    android:clickable="true"
+                    android:onClick="onClick"
                     android:topLeftRadius="7dp"
                     android:topRightRadius="7dp"
                     android:textAllCaps="false"
                     android:textColor="@color/cardview_dark_background"
-                    android:textSize="15sp" />
+                    android:textSize="15sp"
+                    android:focusable="true"
+                    tools:ignore="UsingOnClickInXml" />
 
             </LinearLayout>
 
