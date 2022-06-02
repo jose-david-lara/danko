@@ -2,12 +2,18 @@ package com.wposs.danko.utils;
 
 public final class Defines {
 
-    public static final String MODEL_DEVICE = "NEW9220";
+    //Constants Service
     public static String API_URL = "http://192.168.100.25:13012/";
-    public static final String ECHO_TEST = "test";
+    public static final String ECHO_TEST = "test/getTest";
     public static final String PARAMS_URL = "params/getParamsInit";
-    public static final String USER_URL = "users/getUser";
+    public static final String USER_URL = "users/getAuthentication";
+    public static final String CREATE_USER = "users/getCreateUser";
+    public static final String PARAMS_CATEGORIES = "params/getCategories";
     public static final String LOGIN_URL = "";
+
+    //Constans Utils Class
+    public static boolean FLAG_SHOW_PROGRESS_BAR = true;
+    public static boolean FLAG_CANCEL_PROGRESS_BAR = false;
 
 
     public static final String BroadcastString = "check";

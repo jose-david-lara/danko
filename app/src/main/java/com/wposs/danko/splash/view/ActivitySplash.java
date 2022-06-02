@@ -1,4 +1,4 @@
-package com.wposs.danko.activity;
+package com.wposs.danko.splash.view;
 
 import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
@@ -12,6 +12,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.wposs.danko.R;
 import com.wposs.danko.login.view.ActivityLogin;
+import com.wposs.danko.test.view.TestView;
+import com.wposs.danko.utils.UtilsClass;
 
 public class ActivitySplash  extends AppCompatActivity {
 
@@ -38,6 +40,7 @@ public class ActivitySplash  extends AppCompatActivity {
         transition.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {
+                new TestView().echoTest(ActivitySplash.this);
             }
             @Override
             public void onAnimationEnd(Animation animation) {
@@ -50,8 +53,13 @@ public class ActivitySplash  extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onBackPressed() {
+        moveTaskToBack(true);
+    }
+
     private void nextActivity ( ){
-        animation.stop(); //Paramos el AnimationDrawable
+        animation.stop();
         Intent intent = new Intent(this, ActivityLogin.class);
         startActivity(intent);
         this.finish();

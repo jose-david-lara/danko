@@ -31,28 +31,38 @@ public class ConsumeServicesExpress implements OnResponseInterface {
         switch (typeServices){
 
             case Defines.ECHO_TEST:
-                call = ApiAdapter.getApiService().getECHOTEST("ECHOTEST");
+                call = ApiAdapter.getApiService().getECHOTEST("test:'test'");
                 break;
 
             case Defines.USER_URL:
                 call = ApiAdapter.getApiService().getUser(ModelInterface.user);
                 break;
 
+            case Defines.PARAMS_CATEGORIES:
+                call = ApiAdapter.getApiService().getCategories(ModelInterface.user);
+                break;
+
         }
+        System.out.println(":::REQUEST:::"+call.request().body());
+
         call.enqueue(new Callback<JsonObject>() {
             @Override
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
                 if (response.isSuccessful()){
-                    jsonResponse.setJsonObjetResponse(response.body());
-                    if(jsonResponse.getJsonObjetResponse().get("model") != null) {
-                        jsonResponse.setJsonObjetResponse(jsonResponse.getJsonObjetResponse().get("model").getAsJsonObject());
-                    }else{
-                        if(jsonResponse.getJsonObjetResponse().get("msgError") == null)
-                            jsonResponse.setJsonObjetResponse(null);
-                    }
-                    call.cancel();
-                    interfaceOnresponse.finish_consumer_services(jsonResponse);
-                }
+                    if(response.code() == 200) {
+                        jsonResponse.setJsonObjetResponse(response.body());
+                        if (jsonResponse.getJsonObjetResponse().get("data") != null && !jsonResponse.getJsonObjetResponse().get("error").getAsBoolean()) {
+                            jsonResponse.setJsonObjetResponse(jsonResponse.getJsonObjetResponse().get("data").getAsJsonObject());
+                        } else {
+                            if (jsonResponse.getJsonObjetResponse().get("message") == null)
+                                jsonResponse.setJsonObjetResponse(null);
+                        }
+                        call.cancel();
+                        interfaceOnresponse.finish_consumer_services(jsonResponse);
+                    }else
+                        interfaceOnresponse.finish_fail_consumer_services();
+                }else
+                    interfaceOnresponse.finish_fail_consumer_services();
             }
 
             @Override
@@ -65,12 +75,12 @@ public class ConsumeServicesExpress implements OnResponseInterface {
 
 
     @Override
-    public void finish_consumer_services(JsonResponse jsonResponse) {
-
+    public boolean finish_consumer_services(JsonResponse jsonResponse) {
+        return true;
     }
 
     @Override
-    public void finish_fail_consumer_services() {
-
+    public boolean finish_fail_consumer_services() {
+        return false;
     }
 }

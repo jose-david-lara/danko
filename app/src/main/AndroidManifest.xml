@@ -23,7 +23,7 @@
             android:name=".home.ActivityHome"
             android:exported="false" />
         <activity
-            android:name=".activity.ActivitySplash"
+            android:name=".splash.view.ActivitySplash"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -37,6 +37,13 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".login.view.ActivityLogin" />
+        </activity>
+        <activity
+            android:name=".signup.view.dto.ActivitySignUp"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".signup.view.dto.ActivitySignUp" />
         </activity>
     </application>
 

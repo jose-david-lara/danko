@@ -5,18 +5,18 @@ import java.util.List;
 
 public class CategoriasDTO {
 
-    private String id;
+    private String idCategorie;
     private String name;
     private String description;
     private String img;
-    private ArrayList<BusinessDTO> businessDTOList;
+    private List<BusinessDTO> business;
 
-    public String getId() {
-        return id;
+    public String getIdCategorie() {
+        return idCategorie;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setIdCategorie(String idCategorie) {
+        this.idCategorie = idCategorie;
     }
 
     public String getName() {
@@ -43,12 +43,22 @@ public class CategoriasDTO {
         this.img = img;
     }
 
-    public ArrayList<BusinessDTO> getBusinessDTOList() {
-        return businessDTOList;
+    public List<BusinessDTO> getBusiness() {
+        return business;
     }
 
-    public void setBusinessDTOList(ArrayList<BusinessDTO> businessDTOList) {
-        this.businessDTOList = businessDTOList;
+    public void setBusiness(List<BusinessDTO> business) {
+        this.business = business;
     }
 
+    @Override
+    public String toString() {
+        return "CategoriasDTO{" +
+                "idCategorie='" + idCategorie + '\'' +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", img='" + img + '\'' +
+                ", business=" + business +
+                '}';
+    }
 }

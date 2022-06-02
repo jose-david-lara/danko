@@ -28,6 +28,7 @@ import java.util.Map;
 public class ActivityLogin extends AppCompatActivity implements View.OnClickListener {
 
     private Button buttonEnter;
+    private Button buttonGuest;
     private EditText capUser;
     private EditText capPass;
 
@@ -38,7 +39,6 @@ public class ActivityLogin extends AppCompatActivity implements View.OnClickList
 
 
         initComponents();
-        //events();
 
     }
 
@@ -59,10 +59,16 @@ public class ActivityLogin extends AppCompatActivity implements View.OnClickList
                 Toast.makeText(this, "Transaccion en proceso", Toast.LENGTH_SHORT).show();
             }
         }
+
+        if(v.getId() == buttonGuest.getId()) {
+                Toast.makeText(this, "Transaccion en proceso", Toast.LENGTH_SHORT).show();
+
+        }
     }
 
     private void initComponents(){
         buttonEnter = (Button) findViewById(R.id.buttonEnter);
+        buttonGuest = (Button) findViewById(R.id.buttonInvitado);
 
         capUser = (EditText) findViewById(R.id.capUser);
         capPass = (EditText) findViewById(R.id.capPass);
@@ -95,16 +101,17 @@ public class ActivityLogin extends AppCompatActivity implements View.OnClickList
     public void echoTest() {
         new ConsumeServicesExpress().consume_api(Defines.USER_URL, new OnResponseInterface() {
             @Override
-            public void finish_consumer_services(JsonResponse jsonResponse) {
+            public boolean finish_consumer_services(JsonResponse jsonResponse) {
                 Toast.makeText(ActivityLogin.this, "Servidor En Linea", Toast.LENGTH_SHORT).show();
-
+                return true;
 
             }
 
 
             @Override
-            public void finish_fail_consumer_services() {
+            public boolean finish_fail_consumer_services() {
                 Toast.makeText(ActivityLogin.this, "Servidor En falla", Toast.LENGTH_SHORT).show();
+                return false;
             }
         });
     }

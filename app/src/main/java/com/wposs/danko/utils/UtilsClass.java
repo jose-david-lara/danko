@@ -1,23 +1,29 @@
 package com.wposs.danko.utils;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Context;
-import android.os.Build;
-import android.text.Layout;
+import android.content.DialogInterface;
 import android.view.WindowManager;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintSet;
 
+import com.squareup.picasso.Picasso;
 import com.wposs.danko.R;
 import com.wposs.danko.interfaces.DialogoInterface;
+import com.wposs.danko.interfaces.OnResponseInterface;
+import com.wposs.danko.io.ConsumeServicesExpress;
+import com.wposs.danko.model.JsonResponse;
+import com.wposs.danko.signup.view.dto.ActivitySignUp;
 
 public class UtilsClass extends AppCompatActivity {
+
+    public ProgressDialog progressDialog;
 
 
     @SuppressLint("UseCompatLoadingForDrawables")
@@ -86,4 +92,54 @@ public class UtilsClass extends AppCompatActivity {
 
 
     }
+
+    public void dialogMessageSimple(Context activity, String Tittle, String msjBody) {
+
+
+        AlertDialog.Builder dialogo = new AlertDialog.Builder(activity);
+        dialogo.setTitle(Tittle);
+        dialogo.setMessage(msjBody);
+        dialogo.setCancelable(true);
+        dialogo.setNegativeButton("Aceptar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int id) {
+                dialog.dismiss();
+            }
+        });
+        dialogo.show();
+
+    }
+
+    public boolean echoTest(Context context) {
+        new ConsumeServicesExpress().consume_api(Defines.ECHO_TEST, new OnResponseInterface() {
+            @Override
+            public boolean finish_consumer_services(JsonResponse jsonResponse) {
+                Toast.makeText(context, "Servidor En Linea", Toast.LENGTH_SHORT).show();
+                return true;
+            }
+
+
+            @Override
+            public boolean finish_fail_consumer_services() {
+                Toast.makeText(context, "Servidor En falla", Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        });
+        return true;
+    }
+
+    public void progressbar (Context context, String body, boolean flagShow){
+
+        if(flagShow == Defines.FLAG_SHOW_PROGRESS_BAR) {
+            progressDialog = new ProgressDialog(context);
+            progressDialog.setMessage("Creando cuenta...");
+            progressDialog.show();
+        }else if(flagShow == Defines.FLAG_CANCEL_PROGRESS_BAR){
+            if(progressDialog.isShowing()) {
+                progressDialog.dismiss();
+            }
+        }
+
+    }
+
 }

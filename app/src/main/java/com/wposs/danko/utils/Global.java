@@ -2,7 +2,6 @@ package com.wposs.danko.utils;
 
 import com.wposs.danko.login.dto.BusinessDTO;
 import com.wposs.danko.login.dto.CategoriasDTO;
-import com.wposs.danko.login.dto.LoginDTO;
 
 import java.util.ArrayList;
 

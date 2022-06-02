@@ -4,9 +4,32 @@
     <string name="pass_cap">Contraseña</string>
     <string name="user_enter">Entrar</string>
     <string name="guest_enter">Invitado</string>
+    <string name="sign_up">Registrate</string>
     <string name="filter_country">Pais</string>
     <string name="filter_department">Estado / Departamento</string>
     <string name="filter_city">Ciudad</string>
+
+/********************************FORM SIGNUP************************************/
+    //Text Hint
+    <string name="header_sign_up">Registrate</string>
+    <string name="names_sign_up">Nombres</string>
+    <string name="last_names_sign_up">Apellidos</string>
+    <string name="email_sign_up">Correo Electronico</string>
+    <string name="pass_sign_up">Contraseña</string>
+    <string name="datebirth_sign_up">Fecha Nacimiento</string>
+    <string name="agree_term_cond_sign_up">Acepto Terminos y Condiciones</string>
+    <string name="term_cond_sign_up">Terminos y Condiciones</string>
+    <string name="agree_sign_up">Registrarme</string>
+    <string name="cancel_sign_up">Regresar</string>
+
+    //Text Error
+    <string name="error_name_sign_up">Por favor escribe tus nombres</string>
+    <string name="error_last_name_sign_up">Por favor escribe tus apellidos</string>
+    <string name="error_email_sign_up">Por favor escribe correo electronico</string>
+    <string name="error_pass_sign_up">Por favor escribe tu contraseña</string>
+    <string name="error_birthday_sign_up">Por favor selecciona tu fecha de nacimiento</string>
+
+/******************************************************************************/
 
     <string name="user_develop">World Pos Solutions</string>
     <string name="user_accept">Aceptar</string>
