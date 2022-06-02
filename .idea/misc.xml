@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Proyectos/Android/danko/app/src/main/res/drawable-v24/back_corner.xml" value="0.1065" />
+        <entry key="..\:/Proyectos/Android/danko/app/src/main/res/drawable-v24/buttonError.xml" value="0.1065" />
+        <entry key="..\:/Proyectos/Android/danko/app/src/main/res/drawable-v24/cargando.xml" value="0.1765" />
+        <entry key="..\:/Proyectos/Android/danko/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.179" />
+        <entry key="..\:/Proyectos/Android/danko/app/src/main/res/drawable-v24/pushButton.xml" value="0.1735" />
+        <entry key="..\:/Proyectos/Android/danko/app/src/main/res/drawable-v24/pushbutton.xml" value="0.1" />
+        <entry key="..\:/Proyectos/Android/danko/app/src/main/res/drawable/back_corner.xml" value="0.192" />
+        <entry key="..\:/Proyectos/Android/danko/app/src/main/res/drawable/buttonError.xml" value="0.1065" />
+        <entry key="..\:/Proyectos/Android/danko/app/src/main/res/drawable/buttonaccept.xml" value="0.105" />
+        <entry key="..\:/Proyectos/Android/danko/app/src/main/res/drawable/buttonbluepush.xml" value="0.192" />
+        <entry key="..\:/Proyectos/Android/danko/app/src/main/res/drawable/buttoncancel.xml" value="0.105" />
+        <entry key="..\:/Proyectos/Android/danko/app/src/main/res/drawable/buttonerror.xml" value="0.105" />
+        <entry key="..\:/Proyectos/Android/danko/app/src/main/res/drawable/buttongraypush.xml" value="0.1" />
+        <entry key="..\:/Proyectos/Android/danko/app/src/main/res/drawable/buttonsignup.xml" value="0.192" />
+        <entry key="..\:/Proyectos/Android/danko/app/src/main/res/drawable/edittext_rounded.xml" value="0.2475" />
+        <entry key="..\:/Proyectos/Android/danko/app/src/main/res/drawable/error.xml" value="0.1065" />
+        <entry key="..\:/Proyectos/Android/danko/app/src/main/res/drawable/ic_alert.xml" value="0.179" />
+        <entry key="..\:/Proyectos/Android/danko/app/src/main/res/drawable/ic_cap_pass.xml" value="0.179" />
+        <entry key="..\:/Proyectos/Android/danko/app/src/main/res/drawable/ic_cap_user.xml" value="0.179" />
+        <entry key="..\:/Proyectos/Android/danko/app/src/main/res/drawable/ic_launcher_background.xml" value="0.179" />
+        <entry key="..\:/Proyectos/Android/danko/app/src/main/res/drawable/loading.xml" value="0.1" />
+        <entry key="..\:/Proyectos/Android/danko/app/src/main/res/drawable/test.xml" value="0.1" />
+        <entry key="..\:/Proyectos/Android/danko/app/src/main/res/layout/activity_home.xml" value="0.14412360688956433" />
+        <entry key="..\:/Proyectos/Android/danko/app/src/main/res/layout/activity_login.xml" value="0.2583518930957684" />
+        <entry key="..\:/Proyectos/Android/danko/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Proyectos/Android/danko/app/src/main/res/layout/activity_sign_up.xml" value="0.33" />
+        <entry key="..\:/Proyectos/Android/danko/app/src/main/res/layout/activity_sing_up.xml" value="0.33" />
+        <entry key="..\:/Proyectos/Android/danko/app/src/main/res/layout/activity_splash.xml" value="0.1762917933130699" />
+        <entry key="..\:/Proyectos/Android/danko/app/src/main/res/layout/activity_term_condi.xml" value="0.26313405797101447" />
+        <entry key="..\:/Proyectos/Android/danko/app/src/main/res/layout/dialog_error.xml" value="0.23641304347826086" />
+        <entry key="..\:/Proyectos/Android/danko/app/src/main/res/layout/dialog_msj_accept_cancl.xml" value="0.23072916666666668" />
+        <entry key="..\:/Users/andre/Documents/proyectos/Danko/danko/app/src/main/res/layout/activity_business.xml" value="0.3625" />
+        <entry key="..\:/Users/andre/Documents/proyectos/Danko/danko/app/src/main/res/layout/activity_home.xml" value="0.3020833333333333" />
+        <entry key="..\:/Users/andre/Documents/proyectos/Danko/danko/app/src/main/res/layout/activity_login.xml" value="0.3020833333333333" />
+        <entry key="..\:/Users/andre/Documents/proyectos/Danko/danko/app/src/main/res/layout/activity_web_view.xml" value="0.3625" />
+        <entry key="..\:/Users/andre/Documents/proyectos/Danko/danko/app/src/main/res/layout/cardview_home.xml" value="0.3020833333333333" />
+        <entry key="..\:/Users/andre/Documents/proyectos/Danko/danko/app/src/main/res/layout/info_bussines.xml" value="0.18614130434782608" />
+        <entry key="..\:/Users/josed/AppData/Local/Android/Sdk/platforms/android-28/data/res/layout/simple_list_item_1.xml" value="0.23233695652173914" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
