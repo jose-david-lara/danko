@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".home.ActivityHome">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <AutoCompleteTextView
+            android:id="@+id/capPais"
+            android:layout_width="350sp"
+            android:layout_height="40sp"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/edittext_rounded"
+            android:hint="@string/filter_country"
+            android:maxLines="1"
+            android:paddingLeft="10sp"
+            android:singleLine="true"
+            android:textColor="@color/colorInitBack"
+            android:textColorHint="@color/colorInitBack"
+            android:textSize="15sp"
+            android:completionThreshold="1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <AutoCompleteTextView
+            android:id="@+id/capEstado"
+            android:layout_width="350sp"
+            android:layout_height="40sp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/edittext_rounded"
+            android:hint="@string/filter_department"
+            android:maxLines="1"
+            android:paddingLeft="10sp"
+            android:singleLine="true"
+            android:textColor="@color/colorInitBack"
+            android:textColorHint="@color/colorInitBack"
+            android:textSize="15sp"
+            android:completionThreshold="1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.491"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/capPais" />
+
+        <AutoCompleteTextView
+            android:id="@+id/capCiudad"
+            android:layout_width="350sp"
+            android:layout_height="40sp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/edittext_rounded"
+            android:hint="@string/filter_city"
+            android:maxLines="1"
+            android:paddingLeft="10sp"
+            android:singleLine="true"
+            android:textColor="@color/colorInitBack"
+            android:textColorHint="@color/colorInitBack"
+            android:textSize="15sp"
+            android:completionThreshold="1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.508"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/capEstado" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

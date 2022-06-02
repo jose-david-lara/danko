@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="transparent">#00000000</color>
+    <color name="greenCorrect">#FF117C57</color>
+
+
+
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="verde54b45c">#54b45c</color>
+
+    //Colores de Splash
+    <color name="colorSplash">#6e84bc</color>
+
+    //Colores de Init
+    <color name="colorInitBack">#302c4c</color>
+    <color name="colorInitButton">#d85484</color>
+
+
+    //Colores de Login
+    <color name="colorLoginBackBody">#f0ecfc</color>
+    <color name="colorLoginButtonBody">#58448c</color>
+
+    //Colores Menu Principal
+    <color name="colorBackMenuPrincp">#cfcfcf</color>
+    <color name="colorBackCardViewMenuPrincp">#3f9bd4</color>
+
+    //Colores Menu Productos
+    <color name="colorBackMenuProductos">#002283</color>
+
+    //Colores Boton decisiones
+    <color name="color_red">#D82741</color>
+</resources>
