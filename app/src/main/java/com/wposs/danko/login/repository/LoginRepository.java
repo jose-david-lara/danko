@@ -8,6 +8,7 @@ import com.wposs.danko.test.interfaces.TestInterface;
 import com.wposs.danko.test.repository.TestRepository;
 
 import java.util.Map;
+import java.util.Objects;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -47,7 +48,18 @@ public class LoginRepository {
 
     public void saveDataUserRepository (Map<String, Object> userData, Context context) throws Exception{
 
-        new DBRepository().insertUserInfo(userData,context);
+        if(new DBRepository().getUserInfo(Objects.requireNonNull(userData.get("email")).toString(),context).isEmpty()){
+            new DBRepository().insertUserInfo(userData,context);
+        }else{
+            new DBRepository().updateUserInfo(userData,context);
+        }
+
+
+    }
+
+    public Map<String, Object> getDataUserRepository (String email, Context context) throws Exception{
+
+        return new DBRepository().getUserInfo(email,context);
 
     }
 

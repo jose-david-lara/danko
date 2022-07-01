@@ -1,25 +1,17 @@
 package com.wposs.danko.io;
 
 
-import android.content.Context;
-
 import com.google.gson.JsonObject;
 import com.wposs.danko.interfaces.ModelInterface;
 import com.wposs.danko.interfaces.OnResponseInterface;
-import com.wposs.danko.model.JsonResponse;
+import com.wposs.danko.dto.JsonResponse;
 import com.wposs.danko.utils.Defines;
 
 import org.json.JSONObject;
 
-import java.util.Map;
-
-import okhttp3.MediaType;
-import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ConsumeServicesExpress implements OnResponseInterface {
 

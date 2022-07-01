@@ -1,10 +1,12 @@
 package com.wposs.danko.login.service;
 
 import android.content.Context;
+import android.graphics.ColorSpace;
 import android.widget.Toast;
 
 import com.google.gson.JsonObject;
 import com.wposs.danko.db.create.DBTables;
+import com.wposs.danko.interfaces.ModelInterface;
 import com.wposs.danko.interfaces.OnResponseInterface;
 import com.wposs.danko.login.dto.UserDTO;
 import com.wposs.danko.login.repository.LoginRepository;
@@ -22,12 +24,11 @@ import retrofit2.Response;
 
 public class LoginService {
 
-    private LoginRepository loginRepository;
     private Map<String, Object> responseLocal;
 
-    public void getUser(Context context, UserDTO userDTO, ActivityLogin activityLogin) throws Exception{
+    public void getUserService(Context context, UserDTO userDTO, ActivityLogin activityLogin) throws Exception{
 
-        loginRepository = loginRepository.getInstance();
+        LoginRepository loginRepository = LoginRepository.getInstance();
         responseLocal = new HashMap<>();
 
         loginRepository.getLoginInterface().getUser(userDTO).enqueue(new Callback<JsonObject>() {
@@ -44,13 +45,17 @@ public class LoginService {
                             System.out.println(":::ACCESS:::"+OnResponseInterface.jsonResponse.getJsonResponseData().get("access"));
                             try {
                                 responseLocal.put("email",userDTO.getUser());
-                                responseLocal.put("access",OnResponseInterface.jsonResponse.getJsonResponseData().get("access"));
-                                responseLocal.put("name",OnResponseInterface.jsonResponse.getJsonResponseData().get("username"));
-                                responseLocal.put("last_name",OnResponseInterface.jsonResponse.getJsonResponseData().get("username"));
-                                responseLocal.put("url_photo",OnResponseInterface.jsonResponse.getJsonResponseData().get("username"));
-                                responseLocal.put("jwt_feed",OnResponseInterface.jsonResponse.getJsonResponseData().get("username"));
-                                responseLocal.put("type_user",OnResponseInterface.jsonResponse.getJsonResponseData().get("username"));
+                                responseLocal.put("access",OnResponseInterface.jsonResponse.getJsonResponseData().get("access").getAsString());
+                                responseLocal.put("name",OnResponseInterface.jsonResponse.getJsonResponseData().get("username").getAsString());
+                                responseLocal.put("last_name",OnResponseInterface.jsonResponse.getJsonResponseData().get("username").getAsString());
+                                responseLocal.put("url_photo",OnResponseInterface.jsonResponse.getJsonResponseData().get("username").getAsString());
+                                responseLocal.put("jwt_feed",OnResponseInterface.jsonResponse.getJsonResponseData().get("username").getAsString());
+                                responseLocal.put("type_user",userDTO.getUser_app());
+                                responseLocal.put("status","1");
+                                System.out.println("::::GUARDAR INFORMACION::::"+responseLocal.toString());
                                 new LoginRepository().saveDataUserRepository(responseLocal,context);
+                                ModelInterface.user.setUser(userDTO.getUser());
+                                ModelInterface.user.setUser_app(userDTO.getUser_app());
                                 responseLocal.clear();
                                 responseLocal.put("message",OnResponseInterface.jsonResponse.getJsonResponseData().get("message").getAsString()) ;
                                 responseLocal.put("error",OnResponseInterface.jsonResponse.getJsonObjetResponse().get("error").getAsBoolean());

@@ -1,8 +1,7 @@
 package com.wposs.danko.interfaces;
 
 
-import com.wposs.danko.model.JsonResponse;
-import com.wposs.danko.model.UserModel;
+import com.wposs.danko.dto.JsonResponse;
 
 public interface OnResponseInterface {
 

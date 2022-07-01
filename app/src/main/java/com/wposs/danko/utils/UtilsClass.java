@@ -13,13 +13,11 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.squareup.picasso.Picasso;
 import com.wposs.danko.R;
 import com.wposs.danko.interfaces.DialogoInterface;
 import com.wposs.danko.interfaces.OnResponseInterface;
 import com.wposs.danko.io.ConsumeServicesExpress;
-import com.wposs.danko.model.JsonResponse;
-import com.wposs.danko.signup.view.dto.ActivitySignUp;
+import com.wposs.danko.dto.JsonResponse;
 
 public class UtilsClass extends AppCompatActivity {
 
@@ -132,7 +130,7 @@ public class UtilsClass extends AppCompatActivity {
 
         if(flagShow == Defines.FLAG_SHOW_PROGRESS_BAR) {
             progressDialog = new ProgressDialog(context);
-            progressDialog.setMessage("Creando cuenta...");
+            progressDialog.setMessage(body);
             progressDialog.show();
         }else if(flagShow == Defines.FLAG_CANCEL_PROGRESS_BAR){
             if(progressDialog.isShowing()) {

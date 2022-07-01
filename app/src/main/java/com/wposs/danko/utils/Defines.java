@@ -8,12 +8,17 @@ public final class Defines {
     public static final String PARAMS_URL = "params/getParamsInit";
     public static final String USER_URL = "users/getAuthentication";
     public static final String CREATE_USER = "users/getCreateUser";
+    public static final String PARAMS_LOCATIONS_DEFAULT = "params/getLocationsDefault";
     public static final String PARAMS_CATEGORIES = "params/getCategories";
     public static final String LOGIN_URL = "";
 
     //Constans Utils Class
     public static boolean FLAG_SHOW_PROGRESS_BAR = true;
     public static boolean FLAG_CANCEL_PROGRESS_BAR = false;
+
+    //Constans Next Activity
+    public static String ACTIVITY_SIGNUP = "ACTIVITY_SIGNUP";
+    public static String ACTIVITY_PARAMETERS = "ACTIVITY_PARAMETERS";
 
 
     public static final String BroadcastString = "check";
@@ -27,7 +32,6 @@ public final class Defines {
     public static final String USER_APP = "USER";
 
     ///TIPO DE CATEGORIAS.
-
     public static final int CATEGORIA_SALUD = 1;
     public static final int CATEGORIA_EDUCACION = 2;
     public static final int CATEGORIA_TURISMO = 3;

@@ -59,17 +59,15 @@ public class InfoDevice {
 
         ConnectivityManager manager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = manager.getActiveNetworkInfo();
-        ModelInterface.user.setRedConnect(false);
         try {
             if (networkInfo != null) {
 
                 if (networkInfo.getState() == NetworkInfo.State.CONNECTED) {
-                     ModelInterface.user.setRedConnect(true);
                     if (networkInfo.getTypeName().equals("WIFI") || networkInfo.getTypeName().equals("wifi")) {
 
-                        ModelInterface.user.setNameInterfaceConnect(networkInfo.getTypeName());
+                        ModelInterface.user.setName_interface_connect(networkInfo.getTypeName());
                     } else if (networkInfo.getTypeName().equals("MOBILE") || networkInfo.getTypeName().equals("mobile")) {
-                        ModelInterface.user.setNameInterfaceConnect(networkInfo.getTypeName());
+                        ModelInterface.user.setName_interface_connect(networkInfo.getTypeName());
                     }
                     System.out.println("::::INFORMACION RED::::"+networkInfo.getExtraInfo());
                 } else {
