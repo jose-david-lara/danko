@@ -1,7 +1,7 @@
 package com.wposs.danko.login.view;
 
 import android.Manifest;
-import android.app.ProgressDialog;
+import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -9,7 +9,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -19,26 +18,19 @@ import androidx.core.app.ActivityCompat;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.wposs.danko.R;
-import com.wposs.danko.home.ActivityHome;
+import com.wposs.danko.home.view.ActivityHome;
 import com.wposs.danko.interfaces.DialogoInterface;
 import com.wposs.danko.interfaces.ModelInterface;
-import com.wposs.danko.interfaces.OnResponseInterface;
-import com.wposs.danko.io.ConsumeServicesExpress;
-import com.wposs.danko.login.dto.BusinessDTO;
 import com.wposs.danko.login.dto.CategoriasDTO;
-import com.wposs.danko.login.dto.ParametersDTO;
 import com.wposs.danko.login.dto.UserDTO;
 import com.wposs.danko.login.service.LoginService;
-import com.wposs.danko.model.JsonResponse;
-import com.wposs.danko.signup.view.dto.ActivitySignUp;
+import com.wposs.danko.dto.JsonResponse;
+import com.wposs.danko.parameters.view.ActivityParameters;
+import com.wposs.danko.signup.view.ActivitySignUp;
 import com.wposs.danko.utils.Defines;
-import com.wposs.danko.utils.Global;
 import com.wposs.danko.utils.InfoDevice;
 import com.wposs.danko.utils.UtilsClass;
 
-import org.json.JSONArray;
-
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -82,13 +74,13 @@ public class ActivityLogin extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void onClick(View v) {
-        validateParameters ();
-        if(ModelInterface.user.getRedConnect()) {
+        String msjRed  = InfoDevice.infoRedConnect(ActivityLogin.this);
+        if(msjRed.isEmpty()) {
             if (v.getId() == buttonEnter.getId()) {
                 if (capUser.getText().length() > 0 && capPass.getText().length() > 0)
                     login(Defines.USER_APP);
                 else
-                    showError("Debe ingresar usuario y contraseña");
+                    new UtilsClass().dialogMessageSimple(ActivityLogin.this, "ERROR", "Escribe tus credenciales por favor");
             }
 
             if (v.getId() == buttonInvitado.getId()) {
@@ -105,8 +97,10 @@ public class ActivityLogin extends AppCompatActivity implements View.OnClickList
 
             }
             if (v.getId() == buttonSignUp.getId()) {
-                nextActivity();
+                nextActivity(Defines.ACTIVITY_SIGNUP);
             }
+        }else{
+            new UtilsClass().dialogMessageSimple(ActivityLogin.this, "INFORMACION RED", msjRed);
         }
 
     }
@@ -130,28 +124,12 @@ public class ActivityLogin extends AppCompatActivity implements View.OnClickList
     private void validateParameters (){
         String msjRed  = InfoDevice.infoRedConnect(ActivityLogin.this);
         if(!msjRed.isEmpty())
-            showError(msjRed);
+            new UtilsClass().dialogMessageSimple(ActivityLogin.this, "INFORMACION RED", msjRed);
     }
 
-    public void showCategories() {
 
-        Intent intent = new Intent(context, ActivityHome.class);
-        startActivity(intent);
-    }
 
-    public void showError(String error) {
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setCancelable(false);
-        builder.setTitle("Información");
-        builder.setMessage(error);
-        builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-            }
-        });
-        builder.show();
-    }
 
     private void addLocation(ArrayList<CategoriasDTO> categoriasDTO) {
         /*for (int i = 0; i < categoriasDTO.size(); i++) {
@@ -213,13 +191,15 @@ public class ActivityLogin extends AppCompatActivity implements View.OnClickList
             userDTO.setPassword((capPass.getText().length() > 0)?capPass.getText().toString():Defines.USER_GUEST);
             userDTO.setDevice(InfoDevice.getSerial(ActivityLogin.this));
             userDTO.setVersion(InfoDevice.getVersion(ActivityLogin.this));
-            userDTO.setIp(InfoDevice.getIPAddressIPv4((ModelInterface.user.getNameInterfaceConnect().equals("WIFI"))?"wlan":"radio", ActivityLogin.this));
+            userDTO.setIp(InfoDevice.getIPAddressIPv4((ModelInterface.user.getName_interface_connect().equals("WIFI"))?"wlan":"radio", ActivityLogin.this));
 
-            new LoginService().getUser(ActivityLogin.this,userDTO, ActivityLogin.this);
+            new LoginService().getUserService(ActivityLogin.this,userDTO, ActivityLogin.this);
 
 
         } catch (Exception e) {
             e.printStackTrace();
+            utilsClass.progressbar(ActivityLogin.this,null, Defines.FLAG_CANCEL_PROGRESS_BAR);
+            new UtilsClass().dialogMessageSimple(ActivityLogin.this, "INFORMACION", "Error inesperado, por favor intente de nuevo");
         }
 
     }
@@ -232,7 +212,7 @@ public class ActivityLogin extends AppCompatActivity implements View.OnClickList
                 new UtilsClass().dialogMessage(this, new DialogoInterface() {
                     @Override
                     public void accepted() {
-                        return;
+                        nextActivity(Defines.ACTIVITY_PARAMETERS);
                     }
 
                     @Override
@@ -243,7 +223,19 @@ public class ActivityLogin extends AppCompatActivity implements View.OnClickList
 
 
             }else if(Objects.equals(responseService.get("error"), false) && !Objects.equals(responseService.get("message"), "OKAY")){
-                new UtilsClass().dialogMessageSimple(ActivityLogin.this, "CUENTA", Objects.requireNonNull(responseService.get("message")).toString());
+                new UtilsClass().dialogMessage(this, new DialogoInterface() {
+                    @Override
+                    public void accepted() {
+                        nextActivity(Defines.ACTIVITY_PARAMETERS);
+                    }
+
+                    @Override
+                    public void denied() {
+
+                    }
+                }, Objects.requireNonNull(responseService.get("message")).toString(), R.drawable.ic_alert);
+                //new UtilsClass().dialogMessageSimple(ActivityLogin.this, "CUENTA", Objects.requireNonNull(responseService.get("message")).toString());
+
             }else if (!Objects.equals(responseService.get("error"), false)){
                 new UtilsClass().dialogMessageSimple(ActivityLogin.this, "CUENTA", "Error inesperado, por favor intente de nuevo");
             }
@@ -312,10 +304,22 @@ public class ActivityLogin extends AppCompatActivity implements View.OnClickList
 
     }
 
-    private void nextActivity ( ){
-        Intent intent = new Intent(this, ActivitySignUp.class);
-        startActivity(intent);
-        this.finish();
+    private void nextActivity (String activity){
+        Intent intent;
+        switch(activity) {
+            case "ACTIVITY_SIGNUP":
+                intent = new Intent(this,ActivitySignUp.class);
+                startActivity(intent);
+                this.finish();
+                break;
+            case "ACTIVITY_PARAMETERS":
+                intent = new Intent(this,ActivityParameters.class);
+                startActivity(intent);
+                this.finish();
+                break;
+        }
+
+
     }
 
 

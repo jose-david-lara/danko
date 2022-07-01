@@ -1,7 +1,7 @@
 package com.wposs.danko.interfaces;
 
 import com.wposs.danko.login.dto.ParametersDTO;
-import com.wposs.danko.model.UserModel;
+import com.wposs.danko.dto.UserModel;
 
 public interface ModelInterface {
 

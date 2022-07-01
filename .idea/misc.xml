@@ -25,13 +25,15 @@
         <entry key="..\:/Proyectos/Android/danko/app/src/main/res/drawable/ic_launcher_background.xml" value="0.179" />
         <entry key="..\:/Proyectos/Android/danko/app/src/main/res/drawable/loading.xml" value="0.1" />
         <entry key="..\:/Proyectos/Android/danko/app/src/main/res/drawable/test.xml" value="0.1" />
-        <entry key="..\:/Proyectos/Android/danko/app/src/main/res/layout/activity_home.xml" value="0.14412360688956433" />
+        <entry key="..\:/Proyectos/Android/danko/app/src/main/res/layout/activity_home.xml" value="0.25" />
         <entry key="..\:/Proyectos/Android/danko/app/src/main/res/layout/activity_login.xml" value="0.2583518930957684" />
         <entry key="..\:/Proyectos/Android/danko/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Proyectos/Android/danko/app/src/main/res/layout/activity_parameters.xml" value="0.358695652173913" />
         <entry key="..\:/Proyectos/Android/danko/app/src/main/res/layout/activity_sign_up.xml" value="0.33" />
         <entry key="..\:/Proyectos/Android/danko/app/src/main/res/layout/activity_sing_up.xml" value="0.33" />
         <entry key="..\:/Proyectos/Android/danko/app/src/main/res/layout/activity_splash.xml" value="0.1762917933130699" />
         <entry key="..\:/Proyectos/Android/danko/app/src/main/res/layout/activity_term_condi.xml" value="0.26313405797101447" />
+        <entry key="..\:/Proyectos/Android/danko/app/src/main/res/layout/cardview_home.xml" value="0.358695652173913" />
         <entry key="..\:/Proyectos/Android/danko/app/src/main/res/layout/dialog_error.xml" value="0.23641304347826086" />
         <entry key="..\:/Proyectos/Android/danko/app/src/main/res/layout/dialog_msj_accept_cancl.xml" value="0.23072916666666668" />
         <entry key="..\:/Users/andre/Documents/proyectos/Danko/danko/app/src/main/res/layout/activity_business.xml" value="0.3625" />

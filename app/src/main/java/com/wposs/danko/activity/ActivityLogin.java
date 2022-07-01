@@ -1,15 +1,9 @@
 package com.wposs.danko.activity;
 
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.media.Image;
-import android.os.Build;
 import android.os.Bundle;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,12 +12,9 @@ import com.wposs.danko.R;
 import com.wposs.danko.interfaces.DialogoInterface;
 import com.wposs.danko.interfaces.OnResponseInterface;
 import com.wposs.danko.io.ConsumeServicesExpress;
-import com.wposs.danko.model.JsonResponse;
+import com.wposs.danko.dto.JsonResponse;
 import com.wposs.danko.utils.Defines;
 import com.wposs.danko.utils.UtilsClass;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class ActivityLogin extends AppCompatActivity implements View.OnClickListener {
 
@@ -96,25 +87,6 @@ public class ActivityLogin extends AppCompatActivity implements View.OnClickList
     }
 
 
-
-
-    public void echoTest() {
-        new ConsumeServicesExpress().consume_api(Defines.USER_URL, new OnResponseInterface() {
-            @Override
-            public boolean finish_consumer_services(JsonResponse jsonResponse) {
-                Toast.makeText(ActivityLogin.this, "Servidor En Linea", Toast.LENGTH_SHORT).show();
-                return true;
-
-            }
-
-
-            @Override
-            public boolean finish_fail_consumer_services() {
-                Toast.makeText(ActivityLogin.this, "Servidor En falla", Toast.LENGTH_SHORT).show();
-                return false;
-            }
-        });
-    }
 
 
 }

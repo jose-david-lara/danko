@@ -2,7 +2,7 @@ package com.wposs.danko.home.presenter;
 
 import android.content.Context;
 
-import com.wposs.danko.home.ActivityHome;
+import com.wposs.danko.home.view.ActivityHome;
 import com.wposs.danko.home.interfaces.Home_interface;
 import com.wposs.danko.login.dto.BusinessDTO;
 import java.util.ArrayList;

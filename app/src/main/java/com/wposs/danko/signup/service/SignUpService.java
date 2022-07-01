@@ -11,7 +11,7 @@ import com.wposs.danko.login.dto.UserDTO;
 import com.wposs.danko.login.repository.LoginRepository;
 import com.wposs.danko.signup.dto.UserCreateDTO;
 import com.wposs.danko.signup.repository.SignUpRepository;
-import com.wposs.danko.signup.view.dto.ActivitySignUp;
+import com.wposs.danko.signup.view.ActivitySignUp;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -4,92 +4,154 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".home.ActivityHome">
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <AutoCompleteTextView
-            android:id="@+id/capPais"
-            android:layout_width="350sp"
-            android:layout_height="40sp"
-            android:layout_gravity="center"
-            android:layout_marginTop="30dp"
-            android:background="@drawable/edittext_rounded"
-            android:hint="@string/filter_country"
-            android:maxLines="1"
-            android:paddingLeft="10sp"
-            android:singleLine="true"
-            android:textColor="@color/colorInitBack"
-            android:textColorHint="@color/colorInitBack"
-            android:textSize="15sp"
-            android:completionThreshold="1"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <AutoCompleteTextView
-            android:id="@+id/capEstado"
-            android:layout_width="350sp"
-            android:layout_height="40sp"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/edittext_rounded"
-            android:hint="@string/filter_department"
-            android:maxLines="1"
-            android:paddingLeft="10sp"
-            android:singleLine="true"
-            android:textColor="@color/colorInitBack"
-            android:textColorHint="@color/colorInitBack"
-            android:textSize="15sp"
-            android:completionThreshold="1"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.491"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/capPais" />
-
-        <AutoCompleteTextView
-            android:id="@+id/capCiudad"
-            android:layout_width="350sp"
-            android:layout_height="40sp"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            android:background="@drawable/edittext_rounded"
-            android:hint="@string/filter_city"
-            android:maxLines="1"
-            android:paddingLeft="10sp"
-            android:singleLine="true"
-            android:textColor="@color/colorInitBack"
-            android:textColorHint="@color/colorInitBack"
-            android:textSize="15sp"
-            android:completionThreshold="1"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.508"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/capEstado" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
+    android:orientation="vertical"
+    tools:context=".home.view.ActivityHome">
 
     <LinearLayout
+        android:id="@+id/ly_main_home"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimaryDark"
+        android:gravity="center"
+        android:orientation="vertical">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler"
+    <LinearLayout
+        android:id="@+id/ly_header_home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20sp"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txtHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/text_header_home"
+            android:textSize="40sp"
+            android:textColor="@color/white"
+            android:layout_gravity="center"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ly_filter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical">
+
+            <AutoCompleteTextView
+                android:id="@+id/inputCountry"
+                android:layout_width="350sp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/edittext_rounded"
+                android:completionThreshold="1"
+
+                android:hint="@string/filter_country"
+                android:maxLines="1"
+                android:paddingStart="10sp"
+                android:singleLine="true"
+                android:textColor="@color/colorInitBack"
+                android:textColorHint="@color/colorInitBack"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="RtlSymmetry" />
+
+            <AutoCompleteTextView
+                android:id="@+id/inputStates"
+                android:layout_width="350sp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/edittext_rounded"
+                android:completionThreshold="1"
+                android:hint="@string/filter_department"
+                android:maxLines="1"
+                android:paddingStart="10sp"
+                android:singleLine="true"
+                android:textColor="@color/colorInitBack"
+                android:textColorHint="@color/colorInitBack"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.491"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:ignore="RtlSymmetry" />
+
+            <AutoCompleteTextView
+                android:id="@+id/inputCity"
+                android:layout_width="350sp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/edittext_rounded"
+                android:completionThreshold="1"
+                android:hint="@string/filter_city"
+                android:maxLines="1"
+                android:paddingLeft="10sp"
+                android:singleLine="true"
+                android:textColor="@color/colorInitBack"
+                android:textColorHint="@color/colorInitBack"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.508"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/inputCity"
+                tools:ignore="RtlHardcoded,RtlSymmetry" />
+
+    </LinearLayout>
+
+        <Button
+            android:id="@+id/buttonExplorer"
+            android:layout_width="190dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="20sp"
+            android:layout_gravity="center"
+            android:background="@drawable/buttonsignup"
+            android:text="@string/button_explorer_home"
+            android:bottomLeftRadius="7dp"
+            android:bottomRightRadius="7dp"
+            android:radius="0.1dp"
+            android:clickable="true"
+            android:onClick="onClickExplorer"
+            android:topLeftRadius="7dp"
+            android:topRightRadius="7dp"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:focusable="true"
+            tools:ignore="OnClick,UsingOnClickInXml" />
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            android:layout_gravity="center"
+            android:src="@drawable/travel"
+            android:contentDescription="@string/app_name" />
+
+
+      <!--  <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>-->
 
     </LinearLayout>
 

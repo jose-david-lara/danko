@@ -20,7 +20,7 @@
             android:name=".business.ActivityBusiness"
             android:exported="false" />
         <activity
-            android:name=".home.ActivityHome"
+            android:name=".home.view.ActivityHome"
             android:exported="false" />
         <activity
             android:name=".splash.view.ActivitySplash"
@@ -33,17 +33,24 @@
         </activity>
         <activity
             android:name=".login.view.ActivityLogin"
-            android:screenOrientation="portrait">
+            android:screenOrientation="fullSensor">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".login.view.ActivityLogin" />
         </activity>
         <activity
-            android:name=".signup.view.dto.ActivitySignUp"
-            android:screenOrientation="portrait">
+            android:name=".signup.view.ActivitySignUp"
+            android:screenOrientation="fullSensor">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".signup.view.dto.ActivitySignUp" />
+                android:value=".signup.view.ActivitySignUp" />
+        </activity>
+        <activity
+            android:name=".parameters.view.ActivityParameters"
+            android:screenOrientation="fullSensor">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".parameters.view.ActivityParameters" />
         </activity>
     </application>
 

@@ -19,11 +19,15 @@ public class DBUtils extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL(DBTables.DANKO_TABLE_CREATE_DANKO_USER);
+        sqLiteDatabase.execSQL(DBTables.DANKO_TABLE_CREATE_DANKO_COUNTRY);
+        sqLiteDatabase.execSQL(DBTables.DANKO_TABLE_CREATE_DANKO_CITY);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
         sqLiteDatabase.execSQL(DBTables.DANKO_TABLE_DANKO_USER_DROP);
+        sqLiteDatabase.execSQL(DBTables.DANKO_TABLE_DANKO_COUNTRY_DROP);
+        sqLiteDatabase.execSQL(DBTables.DANKO_TABLE_DANKO_CITY_DROP);
     }
 
     public SQLiteDatabase checkDataBase(String Database_path) {
@@ -38,10 +42,10 @@ public class DBUtils extends SQLiteOpenHelper {
         }
     }
 
-    public boolean isTableExists(String nombreTabla) {
+    public boolean isTableExists(String nameTable) {
         boolean isExist = false;
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery("select DISTINCT tbl_name from sqlite_master where tbl_name = '" + nombreTabla + "'", null);
+        Cursor cursor = db.rawQuery("select DISTINCT tbl_name from sqlite_master where tbl_name = '" + nameTable + "'", null);
         if (cursor != null) {
             if (cursor.getCount() > 0) {
                 isExist = true;
@@ -51,9 +55,6 @@ public class DBUtils extends SQLiteOpenHelper {
         }
         return isExist;
     }
-
-
-
 
 
 }

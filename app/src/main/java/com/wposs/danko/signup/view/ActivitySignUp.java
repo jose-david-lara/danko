@@ -1,17 +1,12 @@
-package com.wposs.danko.signup.view.dto;
+package com.wposs.danko.signup.view;
 
-import android.annotation.TargetApi;
+
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
-import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.text.Layout;
-import android.util.Log;
-import android.view.KeyEvent;
 import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -19,7 +14,6 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -37,7 +31,6 @@ import com.wposs.danko.utils.UtilsClass;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.Calendar;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
@@ -211,7 +204,7 @@ public class ActivitySignUp extends AppCompatActivity {
             userCreateDTO.setPassword(inputPass.getText().toString());
             userCreateDTO.setBirthday(inputDateBirthDay.getText().toString());
             userCreateDTO.setUrl_photo("xxx");
-            userCreateDTO.setDevice(InfoDevice.getIPAddressIPv4((ModelInterface.user.getNameInterfaceConnect().equals("WIFI")) ? "wlan" : "radio", ActivitySignUp.this));
+            userCreateDTO.setDevice(InfoDevice.getIPAddressIPv4((ModelInterface.user.getName_interface_connect().equals("WIFI")) ? "wlan" : "radio", ActivitySignUp.this));
             new SignUpService().getSignUpUser(ActivitySignUp.this, userCreateDTO, this);
         }
     }
